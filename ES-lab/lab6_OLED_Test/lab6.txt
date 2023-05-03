@@ -1,0 +1,28 @@
+#include <SPI.h>
+#include <U8g2lib.h>
+
+U8G2_SSD1306_128X32_UNIVISION_F_HW_I2C u8g2(U8G2_R0); 
+long T1 = 0;
+int last_observed = 0;
+
+void setup() {
+  // put your setup code here, to run once:
+  u8g2.begin();
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  int observed = analogRead(A0);
+  long T2 = millis();
+  double rms = sqrt((pow(5.0*(observed/1023), 2)-pow(5.0*(last_observed/1023), 2))/((T2-T1)/1000.0));
+
+
+  u8g2.clearBuffer();
+  u8g2.setFont(u8g2_font_logisoso28_tr);
+  u8g2.clear();
+  //u8g2.drawStr(8,29,"MYBOTIC");
+  u8g2.setCursor(8, 29);
+  u8g2.print(rms);
+  u8g2.sendBuffer();
+  delay(1000);
+}
