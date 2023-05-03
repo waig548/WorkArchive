@@ -1,0 +1,3 @@
+single_no_mpi = 54.8395
+quad = 51.7874
+dual(battery) = 190.418

@@ -1,0 +1,7 @@
+/MPITest/bin/**
+/MPITest/obj/**
+/MPITest/*.bmp
+/MPITest/*.jpg
+/MPITest/**/*.obj
+/MPITest/**/*.exe
+/MPITest/**/*.pdb
